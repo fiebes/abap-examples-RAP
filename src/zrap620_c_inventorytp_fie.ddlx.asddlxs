@@ -1,0 +1,110 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Inventory',
+    typeNamePlural: 'Inventorys'
+  }
+}
+annotate view ZRAP620_C_INVENTORYTP_fie with
+{
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Inventory',
+    position: 10
+  } ]
+  @UI.hidden: true
+  UUID;
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM,
+    label: 'InventoryID'
+  } ]
+  @UI.identification: [ {
+    position: 10 ,
+    label: 'InventoryID'
+  } ]
+  InventoryID;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: 'ProductID'
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: 'ProductID'
+  } ]
+  ProductID;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: 'Quantity'
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Quantity'
+  } ]
+  Quantity;
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: 'QuantityUnit'
+  } ]
+  @UI.identification: [ {
+    position: 40 ,
+    label: 'QuantityUnit'
+  } ]
+  QuantityUnit;
+
+  @UI.lineItem: [ {
+    position: 50 ,
+    importance: #HIGH,
+    label: 'Price'
+  } ]
+  @UI.identification: [ {
+    position: 50 ,
+    label: 'Price',
+    importance: #HIGH
+  } ]
+  Price;
+
+  @UI.lineItem: [ {
+    position: 60 ,
+    importance: #MEDIUM,
+    label: 'CurrencyCode'
+  } ]
+  @UI.identification: [ {
+    position: 60 ,
+    label: 'CurrencyCode'
+  } ]
+  CurrencyCode;
+
+  @UI.lineItem: [ {
+    position: 70 ,
+    importance: #MEDIUM,
+    label: 'Description'
+  } ]
+  @UI.identification: [ {
+    position: 70 ,
+    label: 'Description'
+  } ]
+  Description;
+
+  @UI.lineItem: [ {
+    position: 80 ,
+    importance: #MEDIUM,
+    label: 'OverallStatus'
+  } ]
+  @UI.identification: [ {
+    position: 80 ,
+    label: 'OverallStatus'
+  } ]
+  OverallStatus;
+
+  @UI.hidden: true
+  LastChangedAt;
+}

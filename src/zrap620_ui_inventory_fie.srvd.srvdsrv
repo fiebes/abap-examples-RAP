@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition for ZRAP620_C_INVENTORYTP_FIE'
+define service ZRAP620_UI_INVENTORY_FIE {
+  expose ZRAP620_C_INVENTORYTP_fie as Inventory;
+  expose ZRAP620_CE_PRODUCTS_FIE   as Products;
+}
