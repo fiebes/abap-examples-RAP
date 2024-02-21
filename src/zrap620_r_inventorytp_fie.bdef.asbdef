@@ -1,0 +1,61 @@
+managed implementation in class ZRAP620_BP_InventoryTP_fie unique;
+strict ( 2 );
+with draft;
+define behavior for ZRAP620_R_INVENTORYTP_FIE alias Inventory
+persistent table zrap620_invenfie
+draft table zrap620_dinvfie
+etag master LastChangedAt
+lock master total etag LocalLastChangedAt
+authorization master ( global )
+
+{
+  field ( readonly )
+  InventoryID, //semantic key
+  UUID,
+  CreatedAt,
+  CreatedBy,
+  LocalLastChangedAt,
+  Price,
+  LastChangedAt,
+  LastChangedBy;
+
+  field ( numbering : managed )
+  UUID;
+
+  side effects
+  {
+    field ProductID affects field Price;
+    field CurrencyCode affects field Price;
+  }
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  determination CalculateInventoryID on save { create; }
+  determination GetPrice on modify { field ProductID; }
+
+  mapping for zrap620_invenfie
+    {
+      UUID               = uuid;
+      InventoryID        = inventory_id;
+      ProductID          = product_id;
+      Quantity           = quantity;
+      QuantityUnit       = quantity_unit;
+      Price              = price;
+      CurrencyCode       = currency_code;
+      Description        = description;
+      OverallStatus      = overall_status;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+}
